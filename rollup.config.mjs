@@ -20,7 +20,7 @@ const baseConfig = {
     typescript(),
     json(),
     babel({
-      babelHelpers: 'bundled',
+      babelHelpers: 'runtime',
       exclude: 'node_modules/**',
       extensions: ['.js', '.ts'],
     }),
@@ -55,12 +55,10 @@ const productionConfig = {
   output: [
     {
       file: 'dist/index.js',
-      sourcemap: true,
       format: 'cjs',
     },
     {
       file: 'dist/index.esm.js',
-      sourcemap: true,
       format: 'es',
     },
     {
@@ -70,10 +68,13 @@ const productionConfig = {
       name: packageName,
       globals: {
         // 如果你的库依赖其他全局变量，在这里定义它们
+        '@babel/runtime-corejs3/regenerator': 'regeneratorRuntime',
+        '@babel/runtime-corejs3/helpers/asyncToGenerator': 'asyncToGenerator',
+        '@babel/runtime-corejs3/core-js-stable/promise': 'Promise',
       },
     },
   ],
-  plugins: [...baseConfig.plugins, terser()],
+  plugins: [...baseConfig.plugins],
 }
 
 const dtsConfig =  {

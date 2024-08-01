@@ -16,7 +16,15 @@ var rollupTsUtils = (function (exports) {
       return a / b;
     }
 
+    const asyncFunction = async () => {
+      const result = await Promise.resolve('Babel test');
+      console.log(result);
+    };
+
+    console.log('sssssss');
+
     exports.add = add;
+    exports.asyncFunction = asyncFunction;
     exports.divide = divide;
     exports.multiply = multiply;
     exports.subtract = subtract;
