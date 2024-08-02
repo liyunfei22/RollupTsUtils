@@ -1,12 +1,22 @@
 {
   "name": "rollup-ts-utils",
   "version": "1.0.0",
-  "description": "",
+  "description": "A modern JavaScript tooling library built with TypeScript and Rollup",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
+  "unpkg": "dist/index.umd.js",
+  "jsdelivr": "dist/index.umd.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts",
+      "umd": "./dist/index.umd.js"
+    }
+  },
   "scripts": {
-    "build": "npm run clean && rollup -c",
+    "build": "npm run lint && npm run clean && rollup -c",
     "lint": "eslint 'src/**/*.{js,ts}'",
     "lint:fix": "eslint 'src/**/*.{js,ts}' --fix",
     "format": "prettier --write 'src/**/*.{js,ts,json,md}'",
@@ -18,15 +28,26 @@
     "prepublishOnly": "pnpm run build",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs"
+    "docs:preview": "vitepress preview docs",
+    "version": "npm run build && git add -A dist",
+    "postversion": "git push && git push --tags",
+    "release": "npm run test && npm run build && npm publish"
   },
   "keywords": [
     "utils",
     "typescript",
     "rollup"
   ],
-  "author": "Your Name",
+  "author": "liyunfei22",
   "license": "ISC",
+  "homepage": "https://github.com/liyunfei22/RollupTsUtils",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/liyunfei22/RollupTsUtils.git"
+  },
+  "bugs": {
+    "url": "https://github.com/liyunfei22/RollupTsUtils/issues"
+  },
   "devDependencies": {
     "@babel/core": "^7.25.2",
     "@babel/plugin-transform-runtime": "^7.24.7",
