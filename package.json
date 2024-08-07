@@ -16,7 +16,7 @@
     }
   },
   "scripts": {
-    "build": "npm run lint && npm run clean && rollup -c",
+    "build": "npm run lint && npm run clean && rollup -c rollup.config.prod.mjs",
     "lint": "eslint 'src/**/*.{js,ts}'",
     "lint:fix": "eslint 'src/**/*.{js,ts}' --fix",
     "format": "prettier --write 'src/**/*.{js,ts,json,md}'",
