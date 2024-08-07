@@ -27,7 +27,7 @@ const productionConfig = {
       },
     },
   ],
-  plugins: [...baseConfig.plugins, terser()],
+  plugins: [...baseConfig.plugins],
 };
 
 export default [productionConfig, dtsConfig];

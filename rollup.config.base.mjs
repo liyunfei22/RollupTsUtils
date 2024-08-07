@@ -13,7 +13,9 @@ export const baseConfig = {
   plugins: [
     resolve(),
     commonjs(),
-    typescript(),
+    typescript({
+      declaration: false,
+    }),
     json(),
     babel({
       babelHelpers: 'runtime',

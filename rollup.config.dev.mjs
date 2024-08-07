@@ -4,7 +4,7 @@ import { baseConfig } from './rollup.config.base.mjs';
 const packageName = 'rollupTsUtils';
 
 const devConfig = {
-  ...baseConfig,
+  input: baseConfig.input,
   output: {
     file: 'dev/bundle.js',
     format: 'iife',

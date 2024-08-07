@@ -23,13 +23,16 @@
   <body>
     <h1>RollupTsUtils Development</h1>
     <div id="output"></div>
-    <script src="bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.12.1/polyfill.min.js"></script>
+
+    <script src="dist/bundle.js"></script>
     <script>
       // 示例：使用库中的函数
       document.addEventListener("DOMContentLoaded", () => {
         const outputDiv = document.getElementById("output");
         if (window.rollupTsUtils) {
           outputDiv.textContent = "1 + 2 = " + window.rollupTsUtils.add(1, 2);
+          console.log(window.rollupTsUtils.asyncFunction());
         }
       });
     </script>
