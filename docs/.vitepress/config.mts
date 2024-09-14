@@ -3,6 +3,7 @@ import { defineConfig } from 'vitepress'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "rollup typescirpt utils",
+  base: "/RollupTsUtils/",
   description: "│  rollup typescirpt utils",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
